@@ -2,7 +2,7 @@
 
 安装完整功能：`python -m pip install -r requirements-full.txt`，启动：`python server.py`。
 
-本地完整版本，包含六通道 UMAP、数值聚类与簇解释、预测样本定位、候选对空间与 GLM 差异比较、Optuna TPE 优化，以及数据输入、固定划分、参考编码、机制预训练、冻结迁移、预测检索、候选筛选及 GLM 机制分析。所有程序文件使用功能名称，不依赖 Fig.6 / Fig.7 等图号脚本，也不需要叠加旧版补丁。
+本地完整版本，包含六通道 UMAP、数值聚类与簇解释、预测样本定位、候选对空间与 GLM 差异比较、Optuna TPE 优化，以及数据输入、固定划分、参考编码、机制预训练、冻结迁移、预测检索、候选筛选及 GLM 机制分析。
 
 ## 1. 安装与启动
 
@@ -42,7 +42,7 @@ python tools/import_previous_workspace.py "D:/你的软件目录"
 如果已有标准化器仅为自己训练得到的可信 `shared_scaler.joblib`，可转换一次：
 
 ```bash
-python tools/scaler_converter.py D:/已有模型/shared_scaler.joblib D:/已有模型/scaler.json --trust-local-file
+python tools/scaler_converter.py models/pretrained/shared_scaler.joblib models/pretrained/scaler.json --trust-local-file
 ```
 
 路径含空格时加双引号。真实模型文件名请按上述名称保留。
