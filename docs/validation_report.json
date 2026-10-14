@@ -1,0 +1,82 @@
+{
+  "version": "1.0.0",
+  "display_version": "V1.0",
+  "validation_date": "2026-10-13",
+  "python_tests": 32,
+  "python_result": "passed",
+  "javascript_handoff": "passed",
+  "syntax_checks": "passed",
+  "browser": {
+    "pageErrors": [],
+    "version": "1.0.0",
+    "channelPlots": 6,
+    "clusterSummaries": 12,
+    "pairComparison": true,
+    "bayesianTrials": 4,
+    "mobileOverflow": false
+  },
+  "optional_hdbscan": [
+    {
+      "channel": 1,
+      "clusters": 2,
+      "deterministic": true
+    },
+    {
+      "channel": 2,
+      "clusters": 2,
+      "deterministic": true
+    },
+    {
+      "channel": 3,
+      "clusters": 2,
+      "deterministic": true
+    },
+    {
+      "channel": 4,
+      "clusters": 2,
+      "deterministic": true
+    },
+    {
+      "channel": 5,
+      "clusters": 2,
+      "deterministic": true
+    },
+    {
+      "channel": 6,
+      "clusters": 2,
+      "deterministic": true
+    }
+  ],
+  "numeric_inputs": "synthetic fixtures and precomputed raw vectors",
+  "llm_mode": "explicit mocked responses, not research conclusions",
+  "test_label_independence": "passed: altered only test lgkp, identical selected objectives and final weights",
+  "actual_checked": [
+    "automatic source-group split",
+    "manual train/test and train/val/test",
+    "train-only PCA/scaler/UMAP",
+    "UMAP transform of saved predicted vectors",
+    "reference-fingerprint mismatch rejection",
+    "imported research coordinates and summary membership checks",
+    "six-channel KMeans and optional HDBSCAN",
+    "sample and pair UMAP + CSV/PNG/SVG/PDF exports",
+    "two-sided LLM citations",
+    "TPE parameter search and final model activation",
+    "real HTTP/UI async analysis flows",
+    "desktop 1500x1000 and mobile 390x844"
+  ],
+  "not_run": [
+    "user research datasets and paper weights",
+    "actual SciBERT checkpoint encoding",
+    "live GLM API",
+    "native Windows startup"
+  ],
+  "packages": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "umap-learn": "0.5.12",
+    "matplotlib": "3.10.8",
+    "optuna": "4.9.0",
+    "hdbscan": "0.8.44"
+  }
+}

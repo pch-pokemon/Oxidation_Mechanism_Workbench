@@ -1,0 +1,59 @@
+{
+  "target": "both",
+  "pretrain_trials": 10,
+  "kinetics_trials": 10,
+  "pretrain_epochs": 150,
+  "kinetics_epochs": 400,
+  "seed": 42,
+  "pretrain_hidden_options": [
+    [
+      128,
+      128,
+      64
+    ],
+    [
+      64,
+      64,
+      32
+    ],
+    [
+      128,
+      64
+    ]
+  ],
+  "kinetics_hidden_options": [
+    [
+      64,
+      32
+    ],
+    [
+      32,
+      16
+    ],
+    [
+      64
+    ]
+  ],
+  "batch_sizes": [
+    16,
+    32,
+    64
+  ],
+  "dropout_range": [
+    0.0,
+    0.3
+  ],
+  "pretrain_lr_range": [
+    0.0001,
+    0.005
+  ],
+  "kinetics_lr_range": [
+    0.0001,
+    0.005
+  ],
+  "weight_decay_range": [
+    1e-06,
+    0.001
+  ],
+  "pruning": true
+}

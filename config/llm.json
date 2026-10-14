@@ -1,0 +1,6 @@
+{
+  "model": "glm-4-plus",
+  "env_file": "",
+  "language": "zh",
+  "api_key_env_candidates": ["ZHIPUAI_API_KEY", "ZHIPU_API_KEY", "API_KEY"]
+}

@@ -1,0 +1,2 @@
+solu_temp,solu_time,middle_temp,middle_time,aging_temp,aging_time,Co,Al,W,Ni,Cr,Mo,Fe,Nb,C,Hf,Si,Ta,Ti,Y,V,B,Zr,Mn,Sc,La,Re,Temperature,E_Time,sample_id,alloy_id,Ref_source_num,condition_id
+1200,12,0.0,0.0,900,100,42.5,7.0,7.0,24.0,6.5,0.0,0.0,0.0,0.0,0.0,2.5,3.0,7.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,900,100,DEMO0001,SYN0001,DEMO-SRC01,900C_100h

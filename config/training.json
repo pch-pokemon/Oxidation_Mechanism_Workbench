@@ -1,0 +1,31 @@
+{
+  "dataset_mode": "auto",
+  "split_strategy": "source",
+  "seed": 42,
+  "joint_json_path": "data/private/joint_six_channel.json",
+  "excel_path": "data/private/oxidation_dataset.xlsx",
+  "train_path": "data/manual/train.xlsx",
+  "val_path": "data/manual/val.xlsx",
+  "test_path": "data/manual/test.xlsx",
+  "scibert_path": "models/scibert",
+  "raw_embeddings_dir": "",
+  "embedding_dim": 64,
+  "hidden_dims": [
+    128,
+    128,
+    64
+  ],
+  "kinetics_hidden_dims": [
+    64,
+    32
+  ],
+  "dropout": 0.1,
+  "batch_size": 32,
+  "pretrain_epochs": 300,
+  "kinetics_epochs": 1000,
+  "pretrain_lr": 0.001,
+  "kinetics_lr": 0.001,
+  "weight_decay": 1e-05,
+  "patience": 50,
+  "device": "cpu"
+}

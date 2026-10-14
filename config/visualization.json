@@ -1,0 +1,24 @@
+{
+  "n_neighbors": 20,
+  "min_dist": 0.15,
+  "metric": "cosine",
+  "seed": 42,
+  "cluster_method": "kmeans",
+  "n_clusters": 6,
+  "min_cluster_size": 15,
+  "min_samples": 5,
+  "representatives": 5,
+  "raw_embeddings_dir": "",
+  "research_output_root": "",
+  "channel_directories": {
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "6": ""
+  },
+  "global_coordinates_path": "",
+  "global_raw_variant": "combined",
+  "reuse_existing": true
+}
