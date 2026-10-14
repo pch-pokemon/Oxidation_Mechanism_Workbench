@@ -1,7 +1,5 @@
 # 氧化机制表征学习与动力学分析软件 V1.0
 
-增强功能详见 [V1.0 增强功能使用说明](docs/增强功能使用说明_V1.0.md)。
-
 安装完整功能：`python -m pip install -r requirements-full.txt`，启动：`python server.py`。
 
 本地完整版本，包含六通道 UMAP、数值聚类与簇解释、预测样本定位、候选对空间与 GLM 差异比较、Optuna TPE 优化，以及数据输入、固定划分、参考编码、机制预训练、冻结迁移、预测检索、候选筛选及 GLM 机制分析。所有程序文件使用功能名称，不依赖 Fig.6 / Fig.7 等图号脚本，也不需要叠加旧版补丁。
@@ -29,22 +27,22 @@ python server.py
 
 本版所有文件独立完整，建议解压到新目录运行。关闭之前的 Python 服务，避免浏览器连到旧版本。页面左下角应显示 **V1.0.0**；必要时按 Ctrl+F5。
 
-## 2. 使用原来的模型与配置
+## 2. 使用已有模型与配置
 
-已有模型可以继续使用，不需要为升级重新训练。在新软件根目录执行：
+已有模型可以继续使用，在新软件根目录执行：
 
 ```bash
-python tools/import_previous_workspace.py "D:/你的旧软件目录"
+python tools/import_previous_workspace.py "D:/你的软件目录"
 ```
 
-该命令把旧 `config/workspace.json` 中的数据、模型和参考文件位置转为绝对路径，保留原文件；并导入非敏感 LLM 配置，必要时将 .env 路径指向旧目录。旧数据和旧权重不会被修改。然后启动或重启新软件服务。
+该命令把 `config/workspace.json` 中的数据、已有模型和参考文件位置转为绝对路径，保留原文件；并导入非敏感 LLM 配置，必要时将 .env 路径指向旧目录。旧数据和旧权重不会被修改。然后启动或重启新软件服务。
 
-也可以在「模型与路径配置」页手动填写旧文件的绝对路径。旧 PyTorch 模型需要 `trial_summary.json` 或准确的预训练架构、`transfer_config.json`、`best_model_state.pt`、`scaler.json` 及对应的参考 CSV/划分。
+也可以在「模型与路径配置」页手动填写文件的绝对路径。已有 PyTorch 模型需要 `trial_summary.json` 或准确的预训练架构、`transfer_config.json`、`best_model_state.pt`、`scaler.json` 及对应的参考 CSV/划分。
 
 如果已有标准化器仅为自己训练得到的可信 `shared_scaler.joblib`，可转换一次：
 
 ```bash
-python tools/scaler_converter.py D:/旧模型/shared_scaler.joblib D:/旧模型/scaler.json --trust-local-file
+python tools/scaler_converter.py D:/已有模型/shared_scaler.joblib D:/已有模型/scaler.json --trust-local-file
 ```
 
 路径含空格时加双引号。真实模型文件名请按上述名称保留。
