@@ -116,7 +116,11 @@ def validate(df):
     return df
 
 
-def generate(n=180, seed=42):
+def generate(n=180, seed=42, generation_config=None):
+    if generation_config is not None:
+        from app.candidate_generation import generate_candidates
+
+        return generate_candidates(n, seed, generation_config)[0]
     if not 2 <= n <= 800:
         raise ValueError("候选数量须在 2–800 之间。")
     rng = np.random.default_rng(seed)

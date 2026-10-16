@@ -6,3 +6,11 @@
 .form-grid.spaced{display:grid}.toolbar.spaced{display:flex}
 
 .umap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.umap-card{min-width:0}.umap-plot{overflow:hidden}.umap-clusters{display:flex;flex-wrap:wrap;gap:6px}.umap-clusters button{font-size:10px;padding:4px 8px}.umap-reference{cursor:pointer}.umap-reference:hover,.umap-reference:focus{opacity:1;stroke:#183747;stroke-width:2}.umap-point-info{font-size:11px;color:#526b77;word-break:break-word;max-height:200px;overflow:auto}.umap-point-info p{white-space:pre-wrap}.analysis-layout{grid-template-columns:minmax(280px,385px) minmax(0,1fr)}aside{overflow-y:auto}nav button{padding-top:9px;padding-bottom:9px}.brand{margin-bottom:28px}.side-bottom{padding-top:20px}@media(max-width:1050px){.umap-grid{grid-template-columns:1fr}}
+
+/* Configurable candidate grids, V1.0 maintenance patch. */
+#candidate-generation-settings{border-top:1px solid var(--line);padding-top:20px;margin-top:20px;min-width:0}
+.candidate-ranges{min-width:430px;table-layout:fixed;white-space:normal}
+.candidate-ranges th:first-child{width:100px}.candidate-ranges td{padding:7px 10px}.candidate-ranges input{min-width:0;width:100%}
+.candidate-tools label{width:165px}.candidate-extra{margin-top:15px}.candidate-extra summary{justify-content:flex-start;color:var(--teal);font-size:12px}
+.candidate-co{margin:18px 0;max-width:600px}#screen .card{min-width:0}
+@media(max-width:500px){.screening{grid-template-columns:repeat(2,minmax(0,1fr))}.candidate-co{grid-template-columns:1fr}.candidate-tools{align-items:flex-end}.candidate-tools label{width:100%}}

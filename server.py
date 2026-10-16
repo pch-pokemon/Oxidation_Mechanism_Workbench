@@ -30,6 +30,7 @@ from app.mechanism_analysis import (
     start_analysis,
     get_job,
 )
+from app.candidate_generation import defaults as candidate_defaults, generate_candidates
 from app import analysis_jobs
 from science import visualization, optimization
 
@@ -83,6 +84,7 @@ def export_run(df, y, vectors, meta, result):
                 "config": workspace,
                 "reference_snapshot": reference_snapshot,
                 "metadata": meta,
+                "candidate_generation": result.get("candidate_generation"),
             },
             ensure_ascii=False,
             indent=2,
@@ -93,10 +95,16 @@ def export_run(df, y, vectors, meta, result):
         pd.DataFrame(result["pairs"]).to_csv(
             out / "pairs.csv", index=False, encoding="utf-8-sig"
         )
+    if "candidate_generation" in result:
+        (out / "candidate_generation.json").write_text(
+            json.dumps(result["candidate_generation"], ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
     return {
         n: "/download/" + (out / n).relative_to(ROOT / "outputs").as_posix()
         for n in ["prediction.csv", "result.json", "manifest.json"]
         + (["pairs.csv"] if "pairs" in result else [])
+        + (["candidate_generation.json"] if "candidate_generation" in result else [])
     }
 
 
@@ -184,6 +192,8 @@ class Handler(BaseHTTPRequestHandler):
             return self.send({"error": "仅接受本机访问"}, 403)
         p = urlparse(self.path).path
         try:
+            if p == "/api/candidates/config":
+                return self.send({"defaults": candidate_defaults()})
             if p == "/api/status":
                 return self.send(status())
             if p == "/api/visualization/config":
@@ -360,11 +370,27 @@ class Handler(BaseHTTPRequestHandler):
                 result["downloads"] = export_run(df, y, v, meta, result)
                 return self.send(result)
             if p == "/api/screen":
-                raw = (
-                    parse_table(body["csv"])
-                    if body.get("csv")
-                    else generate(int(body.get("n", 180)), int(body.get("seed", 42)))
+                source = body.get(
+                    "candidate_source", "csv" if "csv" in body else "generated"
                 )
+                if source == "csv":
+                    csv = body.get("csv")
+                    if not isinstance(csv, str) or not csv.strip():
+                        raise ValueError("请先在数据管理页导入 CSV，再运行候选筛选。")
+                    raw = parse_table(csv)
+                    generation = {
+                        "source": "csv",
+                        "input_count": len(raw),
+                        "notes": "直接使用导入状态，不应用生成范围、步长或固定条件。",
+                    }
+                elif source == "generated":
+                    raw, generation = generate_candidates(
+                        body.get("n", 180),
+                        body.get("seed", 42),
+                        body.get("generation_config"),
+                    )
+                else:
+                    raise ValueError("未知候选来源。")
                 df, y, v, meta = predict(raw, body.get("mode", "demo"))
                 result = screen(
                     df,
@@ -376,6 +402,7 @@ class Handler(BaseHTTPRequestHandler):
                     float(body.get("prescreen", 0.10)),
                     bool(body.get("cross_source", True)),
                 )
+                result["candidate_generation"] = generation
                 result["metadata"] = meta
                 result["downloads"] = export_run(df, y, v, meta, result)
                 return self.send(result)

@@ -1,0 +1,16 @@
+{
+  "base_archive": "Oxidation_Mechanism_Workbench_V1.0_Full.zip",
+  "base_archive_sha256": "2f22eccb73e5404a511463a5d18c20b94663fe2c849532e514debb4a02ac0604",
+  "software_version": "1.0.0",
+  "patch": "candidate-grid-range-1",
+  "files": {
+    "server.py": "1c854e54529003ab5a61cad57727f65eee9c91428c6703ff18d783a1a77eff8a",
+    "app/core.py": "6bca4ecee7b17a55383ff738f7a1bf47e43a0afffdaeb81915cfb3fbc9bb51d5",
+    "app/candidate_generation.py": "a691d66553c46d792b3f75d436c2337c71eeb53459190a05cb55653c903c80df",
+    "web/index.html": "f088f30901a2d65bff1e70f497e4955bdb5ce0d346fc0bd952872d0fce4c1320",
+    "web/app.js": "4a5a6fa22d97a714355782c697b0f38ed3341796cb1c6c91a87b2dd2d0199d37",
+    "web/style.css": "198cd6a1c833412f307715d58ad503cee05e74a8aabe1b922a271acdc3eb8e9f",
+    "web/candidates.js": "20de1f10bf5cc00f5136a6c723730992bfbb3366b67b757d9c79eca8c56778ae",
+    "tests/test_candidate_generation.py": "172a39587a127ea7d701410f25f02cecb26f0f6b819a67bd85b2754261fcf508"
+  }
+}
